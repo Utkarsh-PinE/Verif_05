@@ -13,24 +13,18 @@ void resetpassword()
 
     Enter: printf("\nENETR NEW PASSWORD: ");
     int p=0,i=0;
-    do
+    while((pw[p]=getch())!='\r')
     {
-        pw[p]=getch();
-        if(pw[p]!='\r')
-        {
+
             if(pw[p]=='\b' && p>0)
             {
                 p=p-2;
-                printf("\b");
-                printf(" ");
-                printf("\b");
+                printf("\b \b");
             }
             else if(pw[p]!='\b')
             printf("*");
-        }
-        if(pw[p]!='\b')
         p++;
-    }while(pw[p-1]!='\r');
+    }
     pw[p-1]='\0';
     FILE *fp;
         printf("\nRECONFIRM PASSWORD: ");
